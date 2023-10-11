@@ -98,7 +98,7 @@ function JokesList() {  // Functional component definition
             {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}  {/* Error message display */}
 
             {loading ? (
-                <div>Loading...</div>
+                <div className="spinner"></div>
             ) : jokes.length > 0 ? (
                 jokes.map(j => <p key={j.id}>{j.value}</p>)
             ) : (
