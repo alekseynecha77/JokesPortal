@@ -8,9 +8,7 @@ Jokes Portal is a web application that provides a platform for users to discover
 - **Theme Toggle:** Users can switch between light and dark themes based on their preferences.
 - **Joke Listing:** The portal categorizes jokes for easy navigation. Users can explore jokes by category or view all jokes.
 - **Search Functionality:** Users can search for specific jokes using keywords to find jokes related to their interests.
-- **Pagination:** The portal includes pagination for seamless navigation through a large number of jokes.
 - **Responsive Design:** The application is designed to adapt to different screen sizes, ensuring an enjoyable experience on both desktop and mobile devices.
-- **Spinner Animation:** A spinner animation provides visual feedback to users during loading or transitions.
 
 ### Technologies Used
 
