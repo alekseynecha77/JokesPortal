@@ -12,19 +12,9 @@ Jokes Portal is a web application that provides a platform for users to discover
 - **Responsive Design:** The application is designed to adapt to different screen sizes, ensuring an enjoyable experience on both desktop and mobile devices.
 - **Spinner Animation:** A spinner animation provides visual feedback to users during loading or transitions.
 
-## Usage
-
-1. Visit the [Jokes Portal](#) website.
-2. Toggle between light and dark themes using the theme switcher.
-3. Explore jokes by category or use the search functionality to find specific jokes.
-4. Enjoy a good laugh!
-
-## Development
-
 ### Technologies Used
 
 - React: [https://reactjs.org/](https://reactjs.org/)
-- Public Jokes API: [API Documentation](#)
 
 ### Prerequisites
 
