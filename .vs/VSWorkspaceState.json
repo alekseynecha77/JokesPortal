@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\joke-app-frontend",
-    "\\joke-app-frontend\\src"
+    "\\joke-app-frontend\\src",
+    "\\joke-app-frontend\\src\\components",
+    "\\joke-app-frontend\\src\\components\\Theme"
   ],
   "SelectedNode": "\\joke-app-frontend\\src\\JokesList.js",
   "PreviewInSolutionExplorer": false

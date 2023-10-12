@@ -6,6 +6,6 @@
     "\\src\\components",
     "\\src\\components\\Theme"
   ],
-  "SelectedNode": "\\src\\App.css",
+  "SelectedNode": "\\src\\components\\Theme\\ThemeToggle.js",
   "PreviewInSolutionExplorer": false
 }

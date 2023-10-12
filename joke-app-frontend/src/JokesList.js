@@ -1,43 +1,63 @@
-import React, { useState, useEffect } from 'react';  // Importing necessary hooks and React object from 'react'
-import axios from 'axios';  // Importing axios library for making API calls
+// Import the necessary modules from the React library
+import React, { useState, useEffect } from 'react';
 
-function JokesList() {  // Functional component definition
-    const [joke, setJoke] = useState("");  // State for a single joke
-    const [jokes, setJokes] = useState([]);  // State for multiple jokes (from search)
-    const [loading, setLoading] = useState(true);  // State to track loading status
-    const [categories, setCategories] = useState([]);  // State to store joke categories
+// Import the axios library, which is used for making HTTP requests (like API calls)
+import axios from 'axios';
+
+// Define a functional component called JokesList
+function JokesList() {
+    // Initialize state to store a single joke, using the useState hook
+    const [joke, setJoke] = useState("");
+
+    // Initialize state to store a list of jokes from search results
+    const [jokes, setJokes] = useState([]);
+
+    // Initialize state to track the loading status of API calls
+    const [loading, setLoading] = useState(true);
+
+    // Initialize state to store available joke categories
+    const [categories, setCategories] = useState([]);
+
+    // Initialize state to store the currently selected joke category
     const [selectedCategory, setSelectedCategory] = useState("");
-    const [searchQuery, setSearchQuery] = useState("");  // State for search input value
-    const [errorMessage, setErrorMessage] = useState(null);  // State for search input value
 
-    const fetchRandomJoke = async () => {  // Function to fetch a random joke
-        setLoading(true);  // Setting loading state to true before API call
+    // Initialize state to store the user's search query input
+    const [searchQuery, setSearchQuery] = useState("");
+
+    // Initialize state to store any error messages during operations
+    const [errorMessage, setErrorMessage] = useState(null);
+
+    // Define an asynchronous function to fetch a random joke from the API
+    const fetchRandomJoke = async () => {
+        setLoading(true); // Indicate that an API call is in progress
         try {
-            let apiEndpoint = "https://api.chucknorris.io/jokes/random";  // Default API endpoint for a random joke
-            if (selectedCategory) {  // If a category is selected
-                apiEndpoint += `?category=${selectedCategory}`;  // Append category query to the API endpoint
+            let apiEndpoint = "https://api.chucknorris.io/jokes/random";
+            if (selectedCategory) {  // If a category is selected, modify the API endpoint
+                apiEndpoint += `?category=${selectedCategory}`;
             }
-            const response = await axios.get(apiEndpoint);  // Making the API call
-            setJoke(response.data.value);  // Setting the fetched joke to state
-            setLoading(false);  // Setting loading state to false after API call
+            const response = await axios.get(apiEndpoint);
+            setJoke(response.data.value);
+            setLoading(false); // Indicate that the API call has completed
         } catch (error) {
-            console.error("Error fetching Chuck Norris joke", error);  // Logging error in case of failure
-            setLoading(false);  // Setting loading state to false after API call
+            console.error("Error fetching Chuck Norris joke", error);
+            setLoading(false);
         }
     };
 
-    const fetchCategories = async () => {  // Function to fetch joke categories
+    // Define an asynchronous function to fetch the available joke categories from the API
+    const fetchCategories = async () => {
         try {
-            const response = await axios.get("https://api.chucknorris.io/jokes/categories");  // API call to fetch categories
-            setCategories(response.data);  // Setting fetched categories to state
+            const response = await axios.get("https://api.chucknorris.io/jokes/categories");
+            setCategories(response.data);
         } catch (error) {
-            console.error("Error fetching categories", error);  // Logging error in case of failure
+            console.error("Error fetching categories", error);
         }
     };
 
+    // Define an asynchronous function to handle joke searches based on user input
     const handleSearch = async () => {
         setLoading(true);
-        setErrorMessage(null);  // Clearing any previous error message.
+        setErrorMessage(null);
         if (searchQuery.length < 3 || searchQuery.length > 120) {
             setErrorMessage("Search query must be between 3 and 120 characters.");
             setLoading(false);
@@ -50,32 +70,32 @@ function JokesList() {  // Functional component definition
             setLoading(false);
         } catch (error) {
             console.error("Error searching for jokes", error);
-
-            // Extracting error message from API or using a default message
             let errorMsg = error.response && error.response.data && error.response.data.message
                 ? error.response.data.message
                 : "An error occurred while searching. Please try again later.";
-
-            setErrorMessage(errorMsg);  // Setting the error message to state.
+            setErrorMessage(errorMsg);
             setLoading(false);
         }
     };
 
-    // Function to clear the input field and reset related states
+    // Function to reset various states and clear the search input
     const handleClear = () => {
-        setSearchQuery("");      // Clear the search input
-        setSelectedCategory(""); // Reset the selected category to "All" (now represented by "")
-        setJokes([]);  
+        setSearchQuery("");
+        setSelectedCategory("");
+        setJokes([]);
         setErrorMessage(null);
     };
 
-    useEffect(() => {  // Hook to run side-effects, runs when component mounts and when selectedCategory changes
-        fetchRandomJoke();  // Fetching a random joke
-        fetchCategories();  // Fetching joke categories
-    }, [selectedCategory]);  // Dependency array, causes useEffect to re-run when selectedCategory changes
+    // useEffect hook runs when the component mounts and also when selectedCategory changes
+    useEffect(() => {
+        fetchRandomJoke();
+        fetchCategories();
+    }, [selectedCategory]);
 
+    // Render the component UI
     return (
         <div>
+            {/* Dropdown for joke categories */}
             <select
                 onChange={e => setSelectedCategory(e.target.value)}
                 value={selectedCategory}
@@ -86,6 +106,7 @@ function JokesList() {  // Functional component definition
                 ))}
             </select>
 
+            {/* Input field for searching jokes */}
             <input
                 type="text"
                 placeholder="Search for jokes..."
@@ -95,8 +116,10 @@ function JokesList() {  // Functional component definition
             <button onClick={handleSearch}>Search</button>
             <button onClick={handleClear} style={{ backgroundColor: 'red', color: 'white' }}>Clear</button>
 
-            {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}  {/* Error message display */}
+            {/* Display error message if any */}
+            {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
 
+            {/* Display loading spinner, or list of jokes, or a single joke based on current state */}
             {loading ? (
                 <div className="spinner"></div>
             ) : jokes.length > 0 ? (
@@ -106,8 +129,8 @@ function JokesList() {  // Functional component definition
             )}
         </div>
     );
-
 }
+
 
 export default JokesList;  // Exporting the component for use in other parts of the application
 
