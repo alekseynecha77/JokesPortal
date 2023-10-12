@@ -1,130 +1,132 @@
 /* Global Styles */
 body.theme-dark {
-background-color: #121212;
-color: #EDEDED;
+    background-color: #121212;
+    color: #EDEDED;
 }
 
 .app-container.theme-dark {
-background-color: #121212;
-color: #EDEDED;
+    background-color: #121212;
+    color: #EDEDED;
 }
+
 body.theme-dark .app-container,
 body.theme-dark input,
 body.theme-dark select {
-background-color: #121212;
-color: #EDEDED;
-border: 1px solid #757575;
+    background-color: #121212;
+    color: #EDEDED;
+    border: 1px solid #757575;
 }
 
 
 body.theme-dark h1,
 body.theme-dark p,
 body.theme-dark label {
-color: #EDEDED; /* Light text for headers and paragraphs in dark mode */
+    color: #EDEDED; /* Light text for headers and paragraphs in dark mode */
 }
 
 
 
 body.theme-dark button {
-background-color: #004080; /* Darker shade for hover */
+    background-color: #004080; /* Darker shade for hover */
 }
 
-body.theme-dark button:hover {
-    background-color: #0060A0; /* Darker shade for hover */
-}
+    body.theme-dark button:hover {
+        background-color: #0060A0; /* Darker shade for hover */
+    }
+
 .App, .app-container {
-max-width: 800px;
-margin: 50px auto;
-padding: 20px;
-background-color: #ffffff;
-border-radius: 10px;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-text-align: center;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 /* Title Styles */
 h1 {
-font-size: 2em;
-color: #333;
-margin-bottom: 25px;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 25px;
 }
 
 /* Input and Select Styles */
 input, select, button {
-padding: 10px 15px;
-margin-bottom: 15px;
-border: 1px solid #e0e0e0;
-border-radius: 5px;
-font-size: 16px;
-width: 80%;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 80%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 select {
-margin-left: 10px;
+    margin-left: 10px;
 }
 
 button {
-background-color: #007bff;
-color: #ffffff;
-cursor: pointer;
-transition: background-color 0.3s;
-width: 150px;
-padding-right: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 150px;
+    padding-right: 10px;
 }
 
-button:hover {
-background-color: #0056b3;
-}
+    button:hover {
+        background-color: #0056b3;
+    }
 
 /* Jokes Styles */
 .jokes-list > div {
-margin-bottom: 20px;
-padding: 15px;
-border-radius: 5px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-border: 1px solid #e1e1e1;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e1e1e1;
 }
 
 
 
 .header {
-display: flex;
-justify-content: space-between;
-align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .theme-toggle-container {
-margin-right: 10px;
+    margin-right: 10px;
 }
 
 /* Light Theme */
 
 .theme.light {
-background-color: white;
-color: black;
+    background-color: white;
+    color: black;
 }
 
 /* Styles for the dark theme */
 .theme.dark {
-background-color: #121212; /* Soften the black */
-color: #EDEDED; /* Soften the white */
+    background-color: #121212; /* Soften the black */
+    color: #EDEDED; /* Soften the white */
 }
 
-.theme.dark input, .theme.dark select, .theme.dark button {
-border: 1px solid #757575; /* Add visible borders for inputs/buttons in dark mode */
-background-color: #232323; /* Darker background for inputs/buttons */
-color: #EDEDED; /* Light text for inputs in dark mode */
-}
+    .theme.dark input, .theme.dark select, .theme.dark button {
+        border: 1px solid #757575; /* Add visible borders for inputs/buttons in dark mode */
+        background-color: #232323; /* Darker background for inputs/buttons */
+        color: #EDEDED; /* Light text for inputs in dark mode */
+    }
 
-  
+
 /* Additional style for the title based on theme */
 .theme.light h1 {
-color: black;
+    color: black;
 }
 
 .theme.dark h1 {
-color: white;
+    color: white;
 }
 /* Spinner Animation */
 @keyframes spin {
@@ -148,4 +150,3 @@ color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     background: radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.6) 100%);
 }
-

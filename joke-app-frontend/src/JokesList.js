@@ -4,6 +4,9 @@ import React, { useState, useEffect } from 'react';
 // Import the axios library, which is used for making HTTP requests (like API calls)
 import axios from 'axios';
 
+import JokeCard from './JokeCard'; // Assuming JokeCard is in the same directory
+
+
 // Define a functional component called JokesList
 function JokesList() {
     // Initialize state to store a single joke, using the useState hook
@@ -123,9 +126,9 @@ function JokesList() {
             {loading ? (
                 <div className="spinner"></div>
             ) : jokes.length > 0 ? (
-                jokes.map(j => <p key={j.id}>{j.value}</p>)
+                jokes.map(j => <JokeCard key={j.id} joke={j.value} />)
             ) : (
-                <p>{joke}</p>
+                <JokeCard joke={joke} />
             )}
         </div>
     );

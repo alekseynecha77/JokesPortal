@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import JokesList from './JokesList';
 import './App.css';
 import ThemeToggle from './components/Theme/ThemeToggle';
-import ThemeContext from './components/Theme/ThemeContext';
+import { ThemeContext } from './components/Theme/ThemeContext';
 
 function App() {
     const [searchTerm] = useState('');
